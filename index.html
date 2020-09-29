@@ -26,6 +26,16 @@
         const displayTip = document.querySelector("#display-tip")
         const displayBill = document.querySelector("#display-bill")
         const displaySplit = document.querySelector("#display-split")
+
+        billInput.addEventListener('input', function(e) {
+            var bill = parseFloat(billInput.value)
+            var tip = parseFloat(tipInput.value)
+            var people = parseInt(peopleInput.value)
+
+            const tipamount = bill*tip/100
+            const total = bill + tipamount
+
+        })
     </script>
 
     </body>
