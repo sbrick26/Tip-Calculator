@@ -7,13 +7,17 @@
     </head>
     <body>
        
+        <div id="titles">
+            <h1>Tip Calculator</h1>
+
+        </div>
         <div id="allinputs">
             <input class="inputs" type="number" id="bill" placeholder="Total Bill $"> 
             <input class="inputs" type="number" id="tip" placeholder="Tip Percentage %">
             <input class="inputs" type="number" id="people" placeholder="Number of People">
         </div>
         <div id="displays">
-            <h3>Tip Percentage: </h3>
+            <h3>Tip Amount: </h3>
             <h3 id="display-tip"></h3>
             <h1>Total Bill: </h1>
             <h1 id="display-bill"></h1>
@@ -30,9 +34,14 @@
         const displayBill = document.querySelector("#display-bill")
         const displaySplit = document.querySelector("#display-split")
 
+
+
         
         document.querySelectorAll('input').forEach(item => {
-            item.addEventListener('input', function(e) {
+            item.addEventListener('input', handleInputs)
+        })
+
+        function handleInputs (e) {
                 var bill = parseFloat(billInput.value)
                 var tip = parseFloat(tipInput.value)
                 var people = parseInt(peopleInput.value)
@@ -41,13 +50,19 @@
                 const total = bill + tipamount
                 const split = total/people
 
-                displayTip.innerHTML = tipamount
-                displayBill.innerHTML = total
-                displaySplit.innerHTML = split
-            })
-        })
-
-
+                if(tipamount){
+                    displayTip.innerHTML = tipamount
+                }
+                if(total){
+                    displayBill.innerHTML = total
+                }
+                if(split){
+                    displaySplit.innerHTML = split
+                }
+                
+                
+                
+        }
             
 
     </script>
